@@ -157,7 +157,8 @@ public class BlackjackGUI extends JFrame {
                 List<SessionSummary> sessionSummaryList = clientConnecter.listSessions();
                 sessionMap = new HashMap<>();
                 List<String> sessionName = new ArrayList<>();
-                for (SessionSummary session : sessionSummaryList) {
+                for (int i = sessionSummaryList.size()-1; i>=0; i--) {
+                    SessionSummary session = sessionSummaryList.get(i);
                     String s = num++ + ". Session ID: " + session.sessionId + ", Balance: " + session.balance;
                     sessionName.add(s);
                     sessionMap.putIfAbsent(s, session);
